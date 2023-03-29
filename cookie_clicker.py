@@ -5,7 +5,6 @@
     You'll need to check how much money (cookies) you have against the price of each upgrade.
 '''
 
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -79,7 +78,7 @@ while True:
         upgrade.buy_item()
         print("  -> Purchased!", end='')
         time.sleep(WAIT_TIME)
-        purchased_items[upgrade.value] = upgrade.count
+        purchased_items[upgrade.value.lstrip('buy')] = upgrade.count
         available_money -= current_price
         current_price = upgrade.get_price()
     print("\n\nPurchased items :", purchased_items)
